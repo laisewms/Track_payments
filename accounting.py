@@ -4,12 +4,8 @@ def account_app():
 
     """program to track customer payments."""
 
-    #it will open the file
     customers_list = open('customer-orders.txt')
-    #
-
-
-
+    
 
     for client in customers_list:
 
