@@ -7,6 +7,7 @@ def account_app():
     customers_list = open('customer-orders.txt')
     
 
+    print("Customers and the amount paid")
     for client in customers_list:
 
         client = client.rstrip()
@@ -17,14 +18,18 @@ def account_app():
         paid_amount = item [3]
 
         melons_quantity = float(melons_quantity)
-     
+        paid_amount = float(paid_amount)
 
         customers_expected_total = melons_quantity * melon_cost
-        if customers_expected_total != paid_amount:
-            print(f"{customer} paid ${paid_amount},",
+
+        print(f"{customer} paid ${paid_amount},",
              f" expected ${customers_expected_total}")
-
-
+        
+        if customers_expected_total < paid_amount:
+            print(f"{customer} has OVERPAID for their melons.")
+    
+        elif customers_expected_total > paid_amount:
+            print(f"{customer} has UNDERPAID for their melons.")
 
     customers_list.close()
 
